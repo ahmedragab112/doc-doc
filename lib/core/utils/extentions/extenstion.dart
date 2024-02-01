@@ -10,7 +10,7 @@ extension NavigatorHelper on BuildContext {
     );
   }
 
-  void pushNamed(String routeName, Object? arguments) {
+  void pushNamed(String routeName,  {Object? arguments}) {
     Navigator.pushNamed(this, routeName, arguments: arguments);
   }
 
@@ -19,7 +19,7 @@ extension NavigatorHelper on BuildContext {
         this, MaterialPageRoute(builder: (context) => widget));
   }
 
-  void pushReplacementNamed(String routeName, Object? arguments) {
+  void pushReplacementNamed(String routeName, {Object? arguments}) {
     Navigator.pushReplacementNamed(this, routeName, arguments: arguments);
   }
 
@@ -32,7 +32,7 @@ extension NavigatorHelper on BuildContext {
         (route) => false);
   }
 
-  void pushNamedAndRemoveUntil(String routeName, Object? arguments) {
+  void pushNamedAndRemoveUntil(String routeName, {Object? arguments}) {
     Navigator.pushNamedAndRemoveUntil(this, routeName, (route) => false,
         arguments: arguments);
   }
