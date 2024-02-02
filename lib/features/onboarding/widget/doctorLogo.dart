@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:doctor_appionment/core/utils/string/app_string.dart';
 import 'package:doctor_appionment/core/utils/style/app_text_style.dart';
 import 'package:flutter/material.dart';
