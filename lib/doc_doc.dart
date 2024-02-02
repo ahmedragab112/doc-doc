@@ -1,4 +1,5 @@
 import 'package:doctor_appionment/config/router/app_router.dart';
+import 'package:doctor_appionment/config/router/app_routes.dart';
 import 'package:doctor_appionment/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,7 @@ class DocDoc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
@@ -20,6 +21,7 @@ class DocDoc extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
+          initialRoute: AppRoutes.onBoardingScreen,
           onGenerateRoute: AppRouter.onGenerateRoutes,
           debugShowCheckedModeBanner: false,
           locale: const Locale('en'),
