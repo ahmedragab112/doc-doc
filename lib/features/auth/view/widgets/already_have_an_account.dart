@@ -9,9 +9,10 @@ class DontHaveAnAccount extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(children: [
-        const TextSpan(
+        TextSpan(
             text: 'Don\'t have an account? ',
-            style: AppTextStyle.font12ColorGreyW400),
+            style:
+                AppTextStyle.font12ColorGreyW400.copyWith(color: Colors.black)),
         TextSpan(
           text: ' Sign Up',
           style: AppTextStyle.font12ColorMainBlueRegular
