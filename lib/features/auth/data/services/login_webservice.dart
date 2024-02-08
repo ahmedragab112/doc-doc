@@ -11,7 +11,5 @@ abstract class LoginWebService {
   factory LoginWebService(Dio dio, {String baseUrl}) = _LoginWebService;
 
   @POST(EndPointes.loginAuthEndPoint)
- 
-  Future<LoginResponseModel> login(
-      @Body() LoginModel login);
+  Future<LoginResponseModel> login(@Body() LoginModel login);
 }

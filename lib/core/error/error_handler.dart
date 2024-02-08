@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:doctor_appionment/core/api/api_errors.dart';
-import 'package:doctor_appionment/core/api/api_response.dart';
+import 'package:doctor_appionment/core/error/api_errors.dart';
+import 'package:doctor_appionment/core/api/api_error_model.dart';
 
-// TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,

@@ -13,7 +13,7 @@ class _LoginWebService implements LoginWebService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://vcare.integration25.com/api';
+    baseUrl ??= 'https://vcare.integration25.com/api/';
   }
 
   final Dio _dio;

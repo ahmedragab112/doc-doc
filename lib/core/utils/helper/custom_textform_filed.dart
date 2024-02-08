@@ -8,21 +8,31 @@ class CustomFormFiled extends StatelessWidget {
       required this.hintText,
       this.icon,
       this.obscureText = false,
-      this.inputType = TextInputType.emailAddress});
+      this.inputType = TextInputType.emailAddress,
+      required this.controller,
+      this.validator});
   final String hintText;
   final Widget? icon;
   final bool obscureText;
   final TextInputType inputType;
-
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
+      controller: controller,
       style: AppTextStyle.font14ColorBlackMeduim,
       obscureText: obscureText,
       keyboardType: inputType,
       decoration: InputDecoration(
+        focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(color: Colors.red, width: 1.3)),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(color: Colors.red, width: 1.3)),
         suffixIcon: icon,
-        isDense: true,
         filled: true,
         fillColor: ColorManger.formBackground,
         hintText: hintText,
@@ -30,12 +40,12 @@ class CustomFormFiled extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide:
-                const BorderSide(color: ColorManger.mainBlue, width: 1.4)),
+                const BorderSide(color: ColorManger.mainBlue, width: 1.3)),
         enabled: true,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
-                color: ColorManger.formBoraderGrey, width: 1.4)),
+                color: ColorManger.formBoraderGrey, width: 1.3)),
       ),
     );
   }

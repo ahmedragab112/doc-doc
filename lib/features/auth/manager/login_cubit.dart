@@ -1,26 +1,25 @@
-import 'package:bloc/bloc.dart';
-import 'package:doctor_appionment/features/auth/data/models/log_response_model.dart';
 import 'package:doctor_appionment/features/auth/data/models/login_model.dart';
 import 'package:doctor_appionment/features/auth/data/repo/login_repo.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:doctor_appionment/features/auth/manager/login_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'login_state.dart';
-part 'login_cubit.freezed.dart';
+class AuthCubit extends Cubit<LoginState> {
+  final LoginRepo loginRepo;
+  final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  AuthCubit({required this.loginRepo}) : super(const LoginState.initial());
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginRepo loginRepo;
-  LoginCubit({required this.loginRepo}) : super(const LoginState.initial());
-
-  login({required String email, required String password}) async {
+  Future<void> login({required LoginModel loginModel}) async {
     emit(const LoginState.loading());
-    var data =
-        await loginRepo.login(LoginModel(email: email, password: password));
+    var data = await loginRepo.login(loginModel);
     data.when(
       data: (data) {
-        emit(LoginState.success(loginResponseModel: data));
+        emit(LoginState.success(data));
       },
       error: (message) {
-        emit(LoginState.fail(message: message));
+        emit(LoginState.error(message: message.apiErrorModel.message ?? ''));
       },
     );
   }

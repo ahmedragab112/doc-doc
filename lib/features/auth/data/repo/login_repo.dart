@@ -1,4 +1,5 @@
 import 'package:doctor_appionment/core/api/api_responsse.dart';
+import 'package:doctor_appionment/core/error/error_handler.dart';
 import 'package:doctor_appionment/features/auth/data/models/log_response_model.dart';
 import 'package:doctor_appionment/features/auth/data/models/login_model.dart';
 import 'package:doctor_appionment/features/auth/data/services/login_webservice.dart';
@@ -12,7 +13,7 @@ class LoginRepo {
       var data = await loginWebService.login(loginModel);
       return ApiResponse.data(data);
     } catch (e) {
-      return ApiResponse.error(e.toString());
+      return ApiResponse.error(errorHandler: ErrorHandler.handle(e));
     }
   }
 }
